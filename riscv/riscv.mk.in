@@ -214,6 +214,7 @@ riscv_insn_ext_m = \
 	remu \
 	remuw \
 	remw \
+        mac \
 
 riscv_insn_ext_f = \
 	fadd_s \

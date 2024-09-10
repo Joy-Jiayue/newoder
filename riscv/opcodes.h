@@ -120,6 +120,23 @@ static uint32_t addi(unsigned int dest, unsigned int src, uint16_t imm)
     MATCH_ADDI;
 }
 
+//mac函数
+// 定义一个静态函数，用于生成自定义 MAC 指令的机器码
+// rd: 目标寄存器编号
+// rs1: 源寄存器 1 编号
+// rs2: 源寄存器 2 编号
+// 返回值是一个 32 位的无符号整数，表示该指令的编码值
+static uint32_t mac(unsigned int rd, unsigned int rs1, unsigned int rs2) __attribute__ ((unused));
+static uint32_t mac(unsigned int rd, unsigned int rs1, unsigned int rs2) {
+  // 将 rs2 左移 20 位，rs2 通常位于指令的第 20-24 位
+  // 将 rs1 左移 15 位，rs1 通常位于指令的第 15-19 位
+  // 将 rd 左移 7 位，rd 通常位于指令的第 7-11 位
+  // MATCH_MAC 是指令的操作码，占据指令的第 0-6 位
+  // 最终通过按位或操作组合成一个完整的 32 位指令编码
+  return (rs2 << 20) | (rs1 << 15) | (rd << 7) | MATCH_MAC;
+}
+
+
 static uint32_t csrr(unsigned int rd, unsigned int csr) __attribute__ ((unused));
 static uint32_t csrr(unsigned int rd, unsigned int csr) {
   return (csr << 20) | (rd << 7) | MATCH_CSRRS;
