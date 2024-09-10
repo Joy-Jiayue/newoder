@@ -1,4 +1,33 @@
-README: 在 Spike 中添加新指令 mac.h
+# Ubuntu 24.04 setup
+
+```shell
+sudo apt-get update && sudo apt-get install -y build-essential
+```
+
+# 运行过程
+
+From scratch:
+```
+git clone https://github.com/Joy-Jiayue/newoder.git
+cd newoder
+make
+```
+
+
+导航到指令实现目录
+
+```shell
+make clean
+```
+
+更新所有相关文件后，使用以下命令重新构建 Spike 模拟器：
+```shell
+make
+```
+
+TODO: write an executable test
+
+# README: 在 Spike 中添加新指令 mac.h
 本指南解释了如何将新的 mac 指令添加到 Spike RISC-V 模拟器中。该指令执行乘法累加操作，并将集成到 RISC-V 指令集中。
 
 添加 mac.h 指令的步骤：
@@ -65,17 +94,3 @@ riscv_insn_ext_m = \
   remw \
   mac  # 将 mac 指令添加到扩展集
 
-# 运行过程：
-
-导航到指令实现目录
-
-```shell
-make clean
-```
-
-更新所有相关文件后，使用以下命令重新构建 Spike 模拟器：
-```shell
-make
-```
-
-TODO: write an executable test
