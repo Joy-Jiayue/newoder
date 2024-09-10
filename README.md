@@ -65,8 +65,17 @@ riscv_insn_ext_m = \
   remw \
   mac  # 将 mac 指令添加到扩展集
 
-运行过程：
+# 运行过程：
+
 导航到指令实现目录
+
+```shell
 make clean
+```
+
 更新所有相关文件后，使用以下命令重新构建 Spike 模拟器：
+```shell
 make
+```
+
+TODO: write an executable test
